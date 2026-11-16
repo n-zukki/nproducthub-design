@@ -1,0 +1,26 @@
+/* ユーティリティ（ほかの規則より後に読み込む） */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--c-text-muted);
+}
+
+.small {
+  font-size: var(--fs-md);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 狭い幅（スマホ）では出さない */
+@media (max-width: 599px) {
+  .hide-narrow { display: none; }
+}

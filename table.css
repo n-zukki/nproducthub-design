@@ -1,0 +1,99 @@
+/* ---------- 表 ---------- */
+/*
+ * 横スクロールの枠は position: relative にして、中の absolute の要素（読み上げ用の .visually-hidden など）の
+ * 基準にする。基準が枠の外（body）になると、要素が枠で切られずにページの幅を広げ、モバイルで画面全体が横にずれる。
+ */
+.table-wrap {
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  background: var(--c-surface);
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--fs-md);
+}
+
+.table th,
+.table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--c-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  background: var(--c-surface-muted);
+  font-weight: 600;
+  color: var(--c-text-muted);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table th[scope='row'] {
+  white-space: nowrap;
+  font-weight: 600;
+  background: var(--c-surface);
+  position: sticky;
+  left: 0;
+  z-index: var(--z-raised);
+}
+
+/* 行ごとに操作ボタンを置く表は、文字とボタンの縦位置をそろえる */
+.table--cards th,
+.table--cards td {
+  vertical-align: middle;
+}
+
+/* 表の行の右端の操作（ボタン） */
+.table td.table__actions {
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* 狭い幅では、1行を1枚のカードとして縦に並べる。列の見出しは data-label で各値の前に出す */
+@media (max-width: 599px) {
+  .table--cards thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .table--cards tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .table--cards tbody tr:last-child { border-bottom: 0; }
+  .table--cards th,
+  .table--cards td {
+    border-bottom: 0;
+    padding-block: 2px;
+    grid-column: 1;
+  }
+  .table--cards th[scope='row'] { position: static; }
+  .table--cards td[data-label]::before {
+    content: attr(data-label) '：';
+    color: var(--c-text-muted);
+  }
+  .table--cards td.table__actions {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    align-self: center;
+  }
+}
+
+.table__row--link { cursor: pointer; }
+.table__row--link:hover { background: var(--c-primary-soft); }

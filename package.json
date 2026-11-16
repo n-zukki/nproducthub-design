@@ -1,0 +1,21 @@
+{
+  "name": "nproducthub-design",
+  "version": "0.1.0",
+  "description": "トークンと汎用クラスの CSS。ビルド不要で、そのまま読み込む。",
+  "license": "UNLICENSED",
+  "type": "module",
+  "style": "index.css",
+  "exports": {
+    ".": "./index.css",
+    "./index.css": "./index.css",
+    "./tokens.css": "./tokens.css"
+  },
+  "files": [
+    "*.css",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n-zukki/nproducthub-design.git"
+  }
+}

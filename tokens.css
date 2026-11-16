@@ -1,0 +1,70 @@
+/*
+ * 白と青を基調にした配色（Zenn のような白青ベース）。
+ * 明るい青（--c-brand）は装飾用（フォーカスの輪には使わない）。文字や塗りボタンには、白との比が 4.5:1 以上になる濃い青（--c-primary）を使う。
+ */
+:root {
+  --c-bg: #f2f6fa;
+  --c-surface: #ffffff;
+  --c-surface-muted: #f7f9fc;
+  --c-border: #e1e7ef;
+  --c-border-strong: #c6d1de;
+  --c-text: #1f2a37;
+  --c-text-muted: #5b6b7d;
+  --c-brand: #3ea8ff;
+  /* フォーカスの輪。白地での比が 3:1 以上になる濃い青（--c-brand は約 2.5:1 で足りない） */
+  --c-focus: #0b65c2;
+  --c-primary: #0b65c2;
+  --c-primary-hover: #0957a8;
+  --c-primary-soft: #e8f4ff;
+  --c-primary-border: #b9dcff;
+  --c-on-primary: #ffffff;
+  /* モバイルの塗り（検索欄・セグメントの背景）。塗りの上の白い文字は --c-on-primary */
+  --c-fill: #e4e6eb;
+  /* アバターの色（ユーザーの ID で選ぶ。白い文字を載せるので、明るすぎない色にする） */
+  --c-avatar-1: #7c8cf8;
+  --c-avatar-2: #f59e7a;
+  --c-avatar-3: #5cc8a8;
+  --c-avatar-4: #e58fb8;
+  --c-avatar-5: #6fb3e0;
+  --c-avatar-6: #c9a24d;
+  --c-success: #1f7a4d;
+  --c-success-soft: #e6f4ec;
+  --c-success-border: #b5dcc5;
+  --c-warning: #a15c00;
+  --c-warning-soft: #fff4e0;
+  --c-warning-border: #f2d199;
+  --c-danger: #c4314b;
+  --c-danger-soft: #fdecef;
+  --c-danger-border: #f2b8c2;
+  --c-skeleton: #eef2f7;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgb(31 42 55 / 0.06), 0 2px 8px rgb(31 42 55 / 0.04);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --font-sans: system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+  --fs-xxs: 0.625rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.875rem;
+  --fs-lg: 0.9375rem;
+  --fs-xl: 1.0625rem;
+  --fs-2xl: 1.125rem;
+  --fs-3xl: 1.25rem;
+  --fs-4xl: 1.5rem;
+  --fs-display: 1.75rem;
+
+  /* 重なり順 */
+  --z-raised: 1;
+  --z-sticky: 2;
+  --z-floating: 3;
+  --z-header: 10;
+  --z-toast: 100;
+}

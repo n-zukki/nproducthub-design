@@ -1,0 +1,19 @@
+/* ---------- お知らせ ---------- */
+.notice {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-size: var(--fs-lg);
+}
+
+.notice__icon {
+  flex: none;
+  font-weight: 700;
+}
+
+.notice--info { background: var(--c-primary-soft); border-color: var(--c-primary-border); }
+.notice--warning { background: var(--c-warning-soft); border-color: var(--c-warning-border); }
+.notice--danger { background: var(--c-danger-soft); border-color: var(--c-danger-border); }
+.notice--success { background: var(--c-success-soft); border-color: var(--c-success-border); }

@@ -1,0 +1,44 @@
+/* ---------- タブ ---------- */
+.day-tabs {
+  display: flex;
+  gap: var(--space-1);
+  position: relative;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.day-tabs a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.day-tabs button,
+.day-tabs a {
+  border: 0;
+  background: transparent;
+  min-height: 44px;
+  padding-inline: var(--space-3);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--c-text-muted);
+  font-size: var(--fs-lg);
+}
+
+.day-tabs button[aria-selected='true'],
+.day-tabs a[aria-current='page'] {
+  color: var(--c-primary);
+  border-bottom-color: var(--c-primary);
+  font-weight: 600;
+}
+
+.day-tabs__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: var(--c-danger);
+  vertical-align: middle;
+}

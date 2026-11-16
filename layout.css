@@ -1,0 +1,104 @@
+/* ---------- レイアウト（ページ・見出し・カード・並べ方） ---------- */
+.page {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+  padding-block: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.page--narrow {
+  max-width: 720px;
+}
+
+/* シフト編集のように横に広く使う画面。ヘッダーとナビも同じ幅にそろえる（ヘッダー側は app/shell.css） */
+.page--wide {
+  max-width: 1440px;
+}
+
+.page-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+}
+
+/* 1段目：見出しと右側の操作。ボタン・入力欄（44px）と同じ高さにそろえる */
+.page-header__title {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.page-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* 2段目：説明。説明がない画面も同じ高さを空ける */
+.page-header__description {
+  grid-column: 1 / -1;
+}
+
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card__body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/*
+ * fieldset のカードの見出し。legend は fieldset の最初の子でないと見出しにならないので、
+ * card__body の外に置き、float で枠線に重ならないようにして card__body の先頭と同じ見た目にする。
+ */
+.card__legend {
+  float: left;
+  width: 100%;
+  padding: var(--space-4) var(--space-4) 0;
+  font-weight: 700;
+}
+
+.card__legend + .card__body {
+  clear: both;
+  padding-top: var(--space-3);
+}
+
+.card__header {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+@media (max-width: 599px) {
+  .page-header__title {
+    font-size: var(--fs-display);
+    font-weight: 800;
+  }
+}
