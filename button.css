@@ -55,6 +55,43 @@
   background: var(--c-danger-soft);
 }
 
+/* 段2：白地に青枠。進める操作だが、その場所で一番ではないもの */
+.btn--secondary {
+  background: var(--c-surface);
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+}
+
+.btn--secondary:hover {
+  background: var(--c-primary-soft);
+}
+
+.btn--secondary:disabled,
+.btn--secondary:disabled:hover {
+  color: var(--c-text-muted);
+  background: #eef1f5;
+  border-color: var(--c-border);
+}
+
+/* 段5：赤の塗り。確認ダイアログの中の、最後の消す操作 */
+.btn--danger-solid {
+  background: var(--c-danger);
+  border-color: var(--c-danger);
+  color: var(--c-on-primary);
+}
+
+.btn--danger-solid:hover {
+  background: var(--c-danger-hover);
+  border-color: var(--c-danger-hover);
+}
+
+.btn--danger-solid:disabled,
+.btn--danger-solid:disabled:hover {
+  color: var(--c-on-primary);
+  background: #e0a0ab;
+  border-color: #e0a0ab;
+}
+
 .btn--ghost {
   border-color: transparent;
   background: transparent;
