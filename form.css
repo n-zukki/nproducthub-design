@@ -69,6 +69,43 @@
   resize: vertical;
 }
 
+/*
+ * プルダウン。閉じた箱だけを整え、開いたときの一覧はブラウザ・OS の標準のままにする。
+ * 矢印（⌄）は背景の SVG。状態ごとに色を変えるため、色ごとに SVG を用意する。
+ *   #5b6b7d = --c-text-muted（通常）
+ *   #0b65c2 = --c-primary（フォーカス）
+ *   #a9b4c2 = 無効（.btn:disabled の文字より薄い。トークンはない）
+ */
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  /* 矢印（18px + 右 12px）に文字が重ならないよう、右の余白を広げる */
+  padding-right: calc(var(--space-3) + 18px + 12px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%235b6b7d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px 18px;
+}
+
+.select:hover:not(:disabled) {
+  border-color: var(--c-text-muted);
+  background-color: var(--c-surface-muted);
+}
+
+.select:focus {
+  border-color: var(--c-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%230b65c2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+.select:disabled {
+  /* .btn:disabled に合わせる */
+  color: var(--c-text-muted);
+  background-color: #eef1f5;
+  border-color: var(--c-border);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23a9b4c2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+  cursor: not-allowed;
+}
+
 .input[aria-invalid='true'] {
   border-color: var(--c-danger);
 }
