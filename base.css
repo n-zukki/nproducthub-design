@@ -1,7 +1,7 @@
 /* 土台：ルート・リセット・要素の既定 */
 :root {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.6;
   color: var(--c-text);
   background: var(--c-bg);
