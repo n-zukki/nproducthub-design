@@ -7,10 +7,10 @@
 npm レジストリには公開しない。git のタグを指定して入れる。
 
 ```bash
-npm i github:n-zukki/nproducthub-design#v0.2.0
+npm i github:n-zukki/nproducthub-design#v0.4.0
 ```
 
-`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.2.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
+`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.4.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
 
 ## 読み込み方
 
@@ -41,11 +41,20 @@ Next.js なら、ルートのレイアウトで `import 'nproducthub-design/inde
 | 地・面・線・文字 | `--c-bg` `--c-surface` `--c-surface-muted` `--c-border` `--c-border-strong` `--c-text` `--c-text-muted` |
 | ブランド | `--c-brand`（装飾用の明るい青）`--c-focus` `--c-primary` `--c-primary-hover` `--c-primary-soft` `--c-primary-border` `--c-on-primary` |
 | 塗り・アバター | `--c-fill` `--c-avatar-1` 〜 `--c-avatar-6` `--c-skeleton` |
+| 押せない状態 | `--c-disabled` `--c-primary-disabled` `--c-danger-disabled` |
 | 状態 | `--c-success` `--c-warning` `--c-danger`（それぞれ `-soft` `-border` あり） |
 | 形・影 | `--radius-sm` `--radius` `--shadow` |
 | 余白 | `--space-1`（4px）〜 `--space-6`（32px） |
 | 文字 | `--font-sans` `--fs-xxs` `--fs-xs` `--fs-sm` `--fs-md` `--fs-lg` `--fs-xl` `--fs-2xl` `--fs-3xl` `--fs-4xl` `--fs-display` |
 | 重なり順 | `--z-raised` `--z-sticky` `--z-floating` `--z-header` `--z-toast` |
+
+## ダークモード
+
+端末の設定（`prefers-color-scheme: dark`）に合わせて、`tokens.css` の `@media` の値に切り替わる。アプリの側ですることはない。
+
+- 色はトークンを経由して書く。直書きした色はダークモードで切り替わらない。
+- 半透明を重ねた色（`rgb(… / 0.9)` など）や SVG の中の色のように変数にできない色は、同じファイルに `@media (prefers-color-scheme: dark)` を書いて、ダーク用の値を別に用意する。
+- 暗い地では `--c-primary` が明るい青になり、`--c-on-primary` は濃い紺になる。塗りの上の文字は、白を直書きせず `--c-on-primary` を使う。
 
 ## ブランド色の差し替え
 
@@ -66,6 +75,7 @@ Next.js なら、ルートのレイアウトで `import 'nproducthub-design/inde
 - `--c-primary` は、文字や塗りボタンに使う。白（`--c-on-primary`）との比が 4.5:1 以上になる濃い色にする。
 - `--c-focus` は、白地での比が 3:1 以上になる色にする。
 - `--c-brand` は装飾用で、文字やフォーカスの輪には使わない。
+- ダークモードの値も、`@media (prefers-color-scheme: dark) { :root { … } }` で同じように上書きする。暗い地では、`--c-primary` は地との比が 4.5:1 以上になる明るい色にし、`--c-on-primary` は濃い色にする。
 - システム専用の色（業務の意味を持つ色）は、パッケージに足さず、各システムの CSS で別の変数として定義する。
 
 ## クラス名の規則

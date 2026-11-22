@@ -25,15 +25,15 @@
   /* 薄くするだけでなく、文字と地の色を固定して、押せないことが分かる濃さにする */
   opacity: 1;
   color: var(--c-text-muted);
-  background: #eef1f5;
+  background: var(--c-disabled);
   border-color: var(--c-border);
   cursor: not-allowed;
 }
 
 .btn--primary:disabled {
   color: var(--c-on-primary);
-  background: #7fa9d6;
-  border-color: #7fa9d6;
+  background: var(--c-primary-disabled);
+  border-color: var(--c-primary-disabled);
 }
 
 .btn--primary {
@@ -69,7 +69,7 @@
 .btn--secondary:disabled,
 .btn--secondary:disabled:hover {
   color: var(--c-text-muted);
-  background: #eef1f5;
+  background: var(--c-disabled);
   border-color: var(--c-border);
 }
 
@@ -88,8 +88,8 @@
 .btn--danger-solid:disabled,
 .btn--danger-solid:disabled:hover {
   color: var(--c-on-primary);
-  background: #e0a0ab;
-  border-color: #e0a0ab;
+  background: var(--c-danger-disabled);
+  border-color: var(--c-danger-disabled);
 }
 
 .btn--ghost {

@@ -75,6 +75,8 @@
  *   #5b6b7d = --c-text-muted（通常）
  *   #0b65c2 = --c-primary（フォーカス）
  *   #a9b4c2 = 無効（.btn:disabled の文字より薄い。トークンはない）
+ * SVG の中では CSS 変数が使えないので、ダークモードの矢印は下の @media で別に用意する。
+ *   #b4c7dc = --c-text-muted、#7cc0ff = --c-primary、#5f7fa6 = 無効（ダーク）
  */
 .select {
   appearance: none;
@@ -100,10 +102,24 @@
 .select:disabled {
   /* .btn:disabled に合わせる */
   color: var(--c-text-muted);
-  background-color: #eef1f5;
+  background-color: var(--c-disabled);
   border-color: var(--c-border);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23a9b4c2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
   cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23b4c7dc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+  }
+
+  .select:focus {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%237cc0ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+  }
+
+  .select:disabled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%235f7fa6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+  }
 }
 
 .input[aria-invalid='true'] {
