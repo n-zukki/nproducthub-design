@@ -7,10 +7,10 @@
 npm レジストリには公開しない。git のタグを指定して入れる。
 
 ```bash
-npm i github:n-zukki/nproducthub-design#v0.4.0
+npm i github:n-zukki/nproducthub-design#v0.5.0
 ```
 
-`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.4.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
+`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.5.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
 
 ## 読み込み方
 
@@ -50,10 +50,15 @@ Next.js なら、ルートのレイアウトで `import 'nproducthub-design/inde
 
 ## ダークモード
 
-端末の設定（`prefers-color-scheme: dark`）に合わせて、`tokens.css` の `@media` の値に切り替わる。アプリの側ですることはない。
+`tokens.css` の色は、次のどちらかのときにダークの値に切り替わる。
+
+- 端末がダークモード（`prefers-color-scheme: dark`）で、ルート（`<html>`）に `data-theme="light"` がない。アプリの側ですることはない。
+- ルートに `data-theme="dark"` がある。
+
+アプリで「ライト・ダーク・端末の設定に合わせる」を選べるようにするときは、選んだ値に合わせてルートの `data-theme` を `light` か `dark` にする（「端末の設定に合わせる」では付けないか、端末の設定に合わせた値にする）。
 
 - 色はトークンを経由して書く。直書きした色はダークモードで切り替わらない。
-- 半透明を重ねた色（`rgb(… / 0.9)` など）や SVG の中の色のように変数にできない色は、同じファイルに `@media (prefers-color-scheme: dark)` を書いて、ダーク用の値を別に用意する。
+- 半透明を重ねた色（`rgb(… / 0.9)` など）や SVG の中の色のように変数にできない色は、ダーク用の値を別に用意する。書き方は `tokens.css` と同じ2つ（`@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) … }` と `:root[data-theme='dark'] …`）にする。アプリがいつも `data-theme` を付けるなら、`:root[data-theme='dark'] …` だけでよい。
 - 暗い地では `--c-primary` が明るい青になり、`--c-on-primary` は濃い紺になる。塗りの上の文字は、白を直書きせず `--c-on-primary` を使う。
 
 ## ブランド色の差し替え
@@ -75,7 +80,7 @@ Next.js なら、ルートのレイアウトで `import 'nproducthub-design/inde
 - `--c-primary` は、文字や塗りボタンに使う。白（`--c-on-primary`）との比が 4.5:1 以上になる濃い色にする。
 - `--c-focus` は、白地での比が 3:1 以上になる色にする。
 - `--c-brand` は装飾用で、文字やフォーカスの輪には使わない。
-- ダークモードの値も、`@media (prefers-color-scheme: dark) { :root { … } }` で同じように上書きする。暗い地では、`--c-primary` は地との比が 4.5:1 以上になる明るい色にし、`--c-on-primary` は濃い色にする。
+- ダークモードの値も、`tokens.css` と同じ2つの書き方（`@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { … } }` と `:root[data-theme='dark'] { … }`）で上書きする。暗い地では、`--c-primary` は地との比が 4.5:1 以上になる明るい色にし、`--c-on-primary` は濃い色にする。
 - システム専用の色（業務の意味を持つ色）は、パッケージに足さず、各システムの CSS で別の変数として定義する。
 
 ## クラス名の規則
