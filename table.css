@@ -96,4 +96,6 @@
 }
 
 .table__row--link { cursor: pointer; }
-.table__row--link:hover { background: var(--c-primary-soft); }
+@media (hover: hover) {
+  .table__row--link:hover { background: var(--c-primary-soft); }
+}

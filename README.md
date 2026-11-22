@@ -7,10 +7,10 @@
 npm レジストリには公開しない。git のタグを指定して入れる。
 
 ```bash
-npm i github:n-zukki/nproducthub-design#v0.5.0
+npm i github:n-zukki/nproducthub-design#v0.6.0
 ```
 
-`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.5.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
+`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.6.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
 
 ## 読み込み方
 
@@ -87,7 +87,7 @@ Next.js なら、ルートのレイアウトで `import 'nproducthub-design/inde
 
 `block__element` と `block--modifier`（BEM）。例：`.btn` `.btn--primary` `.card__header` `.field__label`。
 
-主なクラス：`.btn` `.badge` `.notice` `.field` `.input` `.select` `.textarea` `.choice` `.table` `.table-wrap` `.card` `.segmented` `.day-tabs` `.state` `.skeleton` `.page` `.page-header` `.stack` `.row` `.fields-2` `.fields-3`、ユーティリティの `.muted` `.small` `.tabular` `.visually-hidden`。
+主なクラス：`.btn` `.icon-btn` `.badge` `.notice` `.field` `.input` `.select` `.textarea` `.choice` `.switch` `.switch-row` `.table` `.table-wrap` `.card` `.segmented` `.day-tabs` `.state` `.skeleton` `.page` `.page-header` `.stack` `.row` `.fields-2` `.fields-3`、ユーティリティの `.muted` `.small` `.tabular` `.visually-hidden`。
 
 ## ブレークポイント
 

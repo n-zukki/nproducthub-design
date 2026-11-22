@@ -17,8 +17,10 @@
   white-space: nowrap;
 }
 
-.btn:hover {
-  background: var(--c-surface-muted);
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--c-surface-muted);
+  }
 }
 
 .btn:disabled {
@@ -42,8 +44,10 @@
   color: var(--c-on-primary);
 }
 
-.btn--primary:hover {
-  background: var(--c-primary-hover);
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--c-primary-hover);
+  }
 }
 
 .btn--danger {
@@ -51,8 +55,10 @@
   border-color: var(--c-danger);
 }
 
-.btn--danger:hover {
-  background: var(--c-danger-soft);
+@media (hover: hover) {
+  .btn--danger:hover {
+    background: var(--c-danger-soft);
+  }
 }
 
 /* 段2：白地に青枠。進める操作だが、その場所で一番ではないもの */
@@ -62,15 +68,19 @@
   color: var(--c-primary);
 }
 
-.btn--secondary:hover {
-  background: var(--c-primary-soft);
+@media (hover: hover) {
+  .btn--secondary:hover {
+    background: var(--c-primary-soft);
+  }
 }
 
 .btn--secondary:disabled,
-.btn--secondary:disabled:hover {
-  color: var(--c-text-muted);
-  background: var(--c-disabled);
-  border-color: var(--c-border);
+@media (hover: hover) {
+  .btn--secondary:disabled:hover {
+    color: var(--c-text-muted);
+    background: var(--c-disabled);
+    border-color: var(--c-border);
+  }
 }
 
 /* 段5：赤の塗り。確認ダイアログの中の、最後の消す操作 */
@@ -80,16 +90,20 @@
   color: var(--c-on-primary);
 }
 
-.btn--danger-solid:hover {
-  background: var(--c-danger-hover);
-  border-color: var(--c-danger-hover);
+@media (hover: hover) {
+  .btn--danger-solid:hover {
+    background: var(--c-danger-hover);
+    border-color: var(--c-danger-hover);
+  }
 }
 
 .btn--danger-solid:disabled,
-.btn--danger-solid:disabled:hover {
-  color: var(--c-on-primary);
-  background: var(--c-danger-disabled);
-  border-color: var(--c-danger-disabled);
+@media (hover: hover) {
+  .btn--danger-solid:disabled:hover {
+    color: var(--c-on-primary);
+    background: var(--c-danger-disabled);
+    border-color: var(--c-danger-disabled);
+  }
 }
 
 .btn--ghost {
@@ -98,14 +112,24 @@
   color: var(--c-primary);
 }
 
-.btn--ghost:hover {
-  background: var(--c-primary-soft);
+@media (hover: hover) {
+  .btn--ghost:hover {
+    background: var(--c-primary-soft);
+  }
 }
 
 .btn--sm {
+  /* 見た目は 32px のまま、押せる範囲だけ上下に 7px ずつ広げて 46px にする */
+  position: relative;
   min-height: 32px;
   padding-inline: var(--space-3);
   font-size: var(--fs-md);
+}
+
+.btn--sm::before {
+  content: '';
+  position: absolute;
+  inset: -7px 0;
 }
 
 .btn--block {
@@ -115,4 +139,16 @@
 .btn[aria-disabled='true'] {
   opacity: 0.6;
   cursor: progress;
+}
+
+/* アイコンだけの丸いボタン（見出しの右などに置く）。押せる範囲は 44px。中身は <svg> や絵文字 */
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--c-primary);
+  text-decoration: none;
 }

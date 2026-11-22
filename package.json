@@ -1,6 +1,6 @@
 {
   "name": "nproducthub-design",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "トークンと汎用クラスの CSS。ビルド不要で、そのまま読み込む。",
   "license": "UNLICENSED",
   "type": "module",
