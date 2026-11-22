@@ -109,17 +109,30 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .select {
+  :root:not([data-theme='light']) .select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23b4c7dc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
   }
 
-  .select:focus {
+  :root:not([data-theme='light']) .select:focus {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%237cc0ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
   }
 
-  .select:disabled {
+  :root:not([data-theme='light']) .select:disabled {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%235f7fa6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
   }
+}
+
+/* ダークモードの矢印。tokens.css のダークの条件と同じ2つの書き方で切り替える */
+:root[data-theme='dark'] .select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23b4c7dc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+:root[data-theme='dark'] .select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%237cc0ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+:root[data-theme='dark'] .select:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%235f7fa6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7l5 5 5-5'/%3E%3C/svg%3E");
 }
 
 .input[aria-invalid='true'] {

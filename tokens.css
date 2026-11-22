@@ -77,12 +77,15 @@
 }
 
 /*
- * ダークモード。端末の設定（prefers-color-scheme）に合わせて切り替わる。
+ * ダークモード。次のどちらかのとき、ダークの値に切り替わる。
+ * - 端末がダークモード（prefers-color-scheme: dark）で、ルートに data-theme="light" がない
+ * - ルートに data-theme="dark" がある（アプリで「ダーク」を選んだとき）
  * 地が暗いので、青や状態の色は明るくし、塗りボタンの文字（--c-on-primary）は白から濃い紺に変える。
- * 文字と地の比は、どれも 4.5:1 以上にしている。
+ * 文字と地の比は、どれも 4.5:1 以上にしている。2つのブロックの値は同じにする。
  */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
     --c-bg: #17304f;
     --c-surface: #1f3b5e;
     --c-surface-muted: #26456b;
@@ -115,4 +118,43 @@
     --c-danger-disabled: #8a4a62;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 8px rgb(0 0 0 / 0.2);
   }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --c-bg: #17304f;
+  --c-surface: #1f3b5e;
+  --c-surface-muted: #26456b;
+  --c-border: #34557d;
+  --c-border-strong: #4a6b93;
+  --c-text: #f0f6ff;
+  --c-text-muted: #b4c7dc;
+  --c-brand: #3ea8ff;
+  --c-focus: #7cc0ff;
+  --c-primary: #7cc0ff;
+  --c-primary-hover: #9fd0ff;
+  --c-primary-soft: #1d4a7e;
+  --c-primary-border: #336aa6;
+  --c-on-primary: #0a1f38;
+  --c-fill: #2a4a70;
+  /* アバターの色は明るい配色と同じ値のまま。文字（--c-on-primary）が濃い紺になるので、比は 5.5:1 以上ある */
+  --c-success: #6fdca6;
+  --c-success-soft: #1a4a48;
+  --c-success-border: #2c6b5c;
+  --c-warning: #f7c672;
+  --c-warning-soft: #4a3d2a;
+  --c-warning-border: #7a6238;
+  --c-danger: #ff9aa9;
+  --c-danger-hover: #ffb8c2;
+  --c-danger-soft: #5a2a45;
+  --c-danger-border: #8a3c5a;
+  --c-skeleton: #2a4568;
+  --c-disabled: #2a4a70;
+  --c-primary-disabled: #3f6f9f;
+  --c-danger-disabled: #8a4a62;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 8px rgb(0 0 0 / 0.2);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
