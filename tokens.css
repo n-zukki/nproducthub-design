@@ -98,13 +98,7 @@
     --c-primary-border: #336aa6;
     --c-on-primary: #0a1f38;
     --c-fill: #2a4a70;
-    /* 白い文字が読めるよう、明るい配色のときより少し暗くする */
-    --c-avatar-1: #5f6fe0;
-    --c-avatar-2: #c9734f;
-    --c-avatar-3: #2f9a7c;
-    --c-avatar-4: #b9618c;
-    --c-avatar-5: #3f87b8;
-    --c-avatar-6: #9c7a2c;
+    /* アバターの色は明るい配色と同じ値のまま。文字（--c-on-primary）が濃い紺になるので、比は 5.5:1 以上ある */
     --c-success: #6fdca6;
     --c-success-soft: #1a4a48;
     --c-success-border: #2c6b5c;
