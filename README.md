@@ -7,10 +7,10 @@
 npm レジストリには公開しない。git のタグを指定して入れる。
 
 ```bash
-npm i github:n-zukki/nproducthub-design#v0.6.0
+npm i github:n-zukki/nproducthub-design#v0.6.1
 ```
 
-`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.6.0"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
+`package.json` には `"nproducthub-design": "github:n-zukki/nproducthub-design#v0.6.1"` と、タグ固定で書く。lockfile にはタグが指すコミットが記録される。
 
 ## 読み込み方
 

@@ -75,12 +75,10 @@
 }
 
 .btn--secondary:disabled,
-@media (hover: hover) {
-  .btn--secondary:disabled:hover {
-    color: var(--c-text-muted);
-    background: var(--c-disabled);
-    border-color: var(--c-border);
-  }
+.btn--secondary:disabled:hover {
+  color: var(--c-text-muted);
+  background: var(--c-disabled);
+  border-color: var(--c-border);
 }
 
 /* 段5：赤の塗り。確認ダイアログの中の、最後の消す操作 */
@@ -98,12 +96,10 @@
 }
 
 .btn--danger-solid:disabled,
-@media (hover: hover) {
-  .btn--danger-solid:disabled:hover {
-    color: var(--c-on-primary);
-    background: var(--c-danger-disabled);
-    border-color: var(--c-danger-disabled);
-  }
+.btn--danger-solid:disabled:hover {
+  color: var(--c-on-primary);
+  background: var(--c-danger-disabled);
+  border-color: var(--c-danger-disabled);
 }
 
 .btn--ghost {
